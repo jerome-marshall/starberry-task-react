@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
 export const DetailContainer = styled.div`
-  /* position: relative; */
+  position: relative;
+  min-height: 100;
   /* min-width: 100%; */
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 50px 20px;
 `;
 
 export const GridWrapper = styled.div`
-  /* position: relative; */
+  position: relative;
   /* background-color: aquamarine; */
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-gap: 20px;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-auto-columns: 100px;
-  /* height: 600px; */
+  height: 600px;
 
   & div.imageOne {
-    height: 370px;
+    height: 350px;
     grid-column: 1 / 9;
     grid-row: 1 / 8;
 
@@ -80,7 +82,7 @@ export const DetailsWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   justify-content: flex-start;
   align-items: stretch;
   padding-left: 10px;
@@ -101,6 +103,7 @@ export const IconContainer = styled.div`
   flex-direction: row;
   padding: 5px 0px;
   justify-content: flex-end;
+  min-height: auto;
   /* position: relative; */
   /* align-self: flex-end; */
   border-bottom: 2px solid gray;
@@ -142,7 +145,7 @@ export const PriceContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  margin-top: 5px;
+  margin: 5px;
   color: #eee;
   background: #111;
   width: 100%;

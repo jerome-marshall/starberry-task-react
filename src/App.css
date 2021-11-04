@@ -9,27 +9,27 @@
 }
 
 .App {
-  /* min-width: var(--max-width); */
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  max-height: 100vh;
-  max-width: 1400px;
-  /* top: 50%; */
-  left: 50%;
-  transform: translate(-50%, 0%);
-
-  @media screen and (max-width: 1500px) {
-    max-width: 150px;
-  }
 }
 
-main {
-  flex-grow: 1;
+.wrapper {
+  max-width: 1000px;
+  position: relative;
+  /* min-height: 100vh; */
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+button {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  width: 120px;
+  cursor: pointer;
 }
 
 h2.nav-heading {
   color: #fff;
+}
+
+.App-footer {
 }
 
 *::-webkit-scrollbar {

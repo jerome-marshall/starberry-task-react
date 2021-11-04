@@ -1,5 +1,6 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
+// Define the global styles
 const GlobalStyles = createGlobalStyle`
   :root {
     --background: #fff;
@@ -10,16 +11,17 @@ const GlobalStyles = createGlobalStyle`
     --grey-700: #888;
     --grey-900: #777;
     --max-width: 1000px;
-    --fz-xs: 15px;
-    --fz-sm: 18px;
-    --fz-md: 20px;
-    --fz-lg: 23px;
-    --fz-xl: 27px;
-    --fz-xxl: 32px;
+    --fz-xxs: 9px;
+    --fz-xs: 11px;
+    --fz-sm: 13px;
+    --fz-md: 15px;
+    --fz-lg: 19px;
+    --fz-xl: 23px;
+    --fz-xxl: 27px;
     --fz-heading-sm: 28px;
     --fz-heading-md: 32px;
     --fz-heading-lg: 36px;
-    --fz-header: 50px;
+    --fz-header: 30px;
     --border-radius: 30px;
     --margin-md: 24px;
     --margin-lg: 32px;
@@ -30,20 +32,7 @@ const GlobalStyles = createGlobalStyle`
     --line-height-sm: 1.6;
     --transition: all 0.3s ease-in-out;
     --nav-height: 60px
-    --max-width: 1500px;
+    --max-width: 1200px;
   }
 `;
 export default GlobalStyles;
-
-export const landScapeMediaQueries = css`
-  @media screen and (max-height: 600px) {
-    height: 120vh;
-  }
-
-  @media screen and (max-height: 500px) {
-    height: 150vh;
-  }
-  @media screen and (max-height: 360px) {
-    height: 180vh;
-  }
-`;

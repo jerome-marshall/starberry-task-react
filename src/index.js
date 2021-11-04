@@ -5,6 +5,7 @@ import GlobalStyles from "./GlobalStyles";
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* Apply CSS Global Variables */}
     <GlobalStyles />
     <App />
   </React.StrictMode>,

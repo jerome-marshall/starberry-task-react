@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 export const SearchResultWrapper = styled.div`
-  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: 100%;
+  /* background-color: aqua; */
+  padding: 0px 20px;
 
   & h3.title {
     font-size: var(--fz-heading-md);
@@ -20,9 +18,6 @@ export const SearchResultWrapper = styled.div`
 export const DropdownContainer = styled.div`
   /* padding: 20px 0px; */
   /* background-color: bisque; */
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 `;
 
 export const ResultGridContainer = styled.div`
@@ -35,27 +30,22 @@ export const ResultGridContainer = styled.div`
   justify-content: center;
   grid-template-columns: repeat(3, 1fr);
 
-  @media (max-width: 1500px) {
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
 export const GridItem = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-bottom: 20px;
   align-items: center;
-  align-self: center;
-  justify-self: center;
-  width: 450px;
 
   & div.image {
     width: 100%;
-    height: 280px;
+    height: 250px;
     & img {
       width: 100%;
       height: 100%;
@@ -63,7 +53,7 @@ export const GridItem = styled.div`
   }
 
   & p.place_name {
-    padding-top: 40px;
+    padding-top: 25px;
     font-size: var(--fz-lg);
     color: var(--grey-900);
   }
@@ -76,8 +66,12 @@ export const GridItem = styled.div`
 
   & p.place_price {
     padding: 20px 0px;
-    font-size: var(--fz-sm);
+    font-size: var(--fz-md);
     color: black;
     font-weight: bold;
+  }
+
+  :hover {
+    cursor: pointer;
   }
 `;

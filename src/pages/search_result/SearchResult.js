@@ -5,23 +5,24 @@ import {
   ResultGridContainer,
   SearchResultWrapper,
 } from "./SearchResultElements";
+import FadeIn from "react-fade-in";
 
 const SearchResultPage = ({ data, setSelectedIndex }) => {
   const history = useHistory();
-
-  console.log("in asdj", data[0]);
 
   const onItemClick = (item, index) => {
     setSelectedIndex(index);
     history.push("detail");
   };
 
+  // render page only if data is not empty
   return data[0] === undefined ? (
     <p>Loading...</p>
   ) : (
-    <SearchResultWrapper>
-      <h3 className="title">Property for Sales</h3>
-      {/* <DropdownContainer>
+    <FadeIn delay="0" transitionDuration="1000">
+      <SearchResultWrapper>
+        <h3 className="title">Property for Sales</h3>
+        {/* <DropdownContainer>
         <Dropdown
           options={options}
           // onChange={this._onSelect}
@@ -30,37 +31,38 @@ const SearchResultPage = ({ data, setSelectedIndex }) => {
         />
       </DropdownContainer> */}
 
-      <ResultGridContainer>
-        {data &&
-          data.map((place, index) => {
-            const images = place.Images;
+        <ResultGridContainer>
+          {/* validate data and dynamically render the items */}
+          {data &&
+            data.map((place, index) => {
+              const images = place.Images;
 
-            return (
-              <GridItem
-                key={place.id}
-                onClick={() => onItemClick(place, index)}
-              >
-                <div className="image">
-                  {images && images.length > 0 ? (
-                    <img
-                      src={images[0].url && images[0].url}
-                      alt={place.Title}
-                    ></img>
-                  ) : (
-                    place.Title
-                  )}
-                </div>
+              return (
+                <FadeIn delay="300" transitionDuration="1000" key={place.id}>
+                  <GridItem
+                    key={place.id}
+                    onClick={() => onItemClick(place, index)}
+                  >
+                    <div className="image">
+                      {images && images.length > 0 ? (
+                        <img src={images[0].url && images[0].url} alt=""></img>
+                      ) : (
+                        place.Title
+                      )}
+                    </div>
 
-                <p className="place_name">{place.Title}</p>
-                <p className="bedrrom_count">
-                  {place.Bedrooms} bedroom {place.Building_Type} for sale
-                </p>
-                <p className="place_price">$ {place.Price}</p>
-              </GridItem>
-            );
-          })}
-      </ResultGridContainer>
-    </SearchResultWrapper>
+                    <p className="place_name">{place.Title}</p>
+                    <p className="bedrrom_count">
+                      {place.Bedrooms} bedroom {place.Building_Type} for sale
+                    </p>
+                    <p className="place_price">$ {place.Price}</p>
+                  </GridItem>
+                </FadeIn>
+              );
+            })}
+        </ResultGridContainer>
+      </SearchResultWrapper>
+    </FadeIn>
   );
 };
 

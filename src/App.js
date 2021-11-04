@@ -6,8 +6,13 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import api from "./api/api";
 import { useEffect, useState } from "react";
+import Login from "./pages/login/Login";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [data, setData] = useState({});
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   //Retrive data from API
   useEffect(() => {
     const getData = async () => {
@@ -19,22 +24,20 @@ function App() {
     getData();
   }, []);
 
-  //used to store data from API
-  const [data, setData] = useState({});
-
-  //used to store search index
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  return (
+  //Check if user is logged in
+  return isLoggedIn ? (
+    // if logged in return the search page
     <div className="wrapper">
+      {/* Handle Routes */}
       <Router>
         <div className="App">
           <header className="App-header">
-            <Header />
+            <Header setIsLoggedIn={setIsLoggedIn} />
           </header>
           <main className="content">
             <Switch>
               <Route path="/detail">
+                {/* Render the detail page only if the data is available */}
                 {data && data[selectedIndex] === undefined ? (
                   <div>Loading...</div>
                 ) : (
@@ -56,6 +59,9 @@ function App() {
         </div>
       </Router>
     </div>
+  ) : (
+    // if user is not logged-in return the login page
+    <Login setIsLoggedIn={setIsLoggedIn} />
   );
 }
 
